@@ -1,0 +1,17 @@
+CREATE TABLESPACE SATE_DATA_DAT
+    DATAFILE '/data/oradata/orcl/datafiles/sate_data_dat_1.dbf' 
+    SIZE 100M 
+    AUTOEXTEND ON 
+    NEXT 50M 
+    MAXSIZE UNLIMITED
+    EXTENT MANAGEMENT LOCAL
+;
+
+CREATE TABLESPACE SATE_DATA_IDX
+    DATAFILE '/data/oradata/orcl/datafiles/sate_data_idx_1.dbf' 
+    SIZE 100M
+    AUTOEXTEND ON 
+    NEXT 50M
+    MAXSIZE UNLIMITED
+    EXTENT MANAGEMENT LOCAL
+;
