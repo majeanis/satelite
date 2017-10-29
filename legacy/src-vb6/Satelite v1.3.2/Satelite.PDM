@@ -1,0 +1,362 @@
+[Root]
+Most Recent Package=Dep File 1
+
+
+[Package|Satelite|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=D:\VB50\Satelite v1.2\Package Satelite
+
+[Package|Satelite|Configure DAO ISAMs]
+Applicable=No
+Xbase=No
+Excel=No
+Exchange=No
+Text=No
+Jet 2.x=No
+Lotus=No
+Paradox=No
+
+[Package|Satelite|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Satelite|Files Found]
+
+[Package|Satelite|Files Released]
+reporte de siniestralidad.sql=
+Cargos y Abonos.sql=
+satelite.db=
+
+[Package|Satelite|Missing Dependency Information]
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=
+C:\Archivos de programa\Archivos comunes\System\ado\msado25.tlb=
+D:\Archivos de programa\Microsoft Office\Office\EXCEL9.OLB=
+D:\VB50\Satelite\Version.exe=
+
+[Package|Satelite|Out-of-Date Dependency Information]
+C:\WINNT\system32\TABCTL32.OCX=
+
+[Package|Satelite|Files Added]
+d:\vb50\satelite\mae\satelite.cfg=
+d:\vb50\satelite\version.exe=
+D:\VB50\Satelite v1.2\Satelite.cnt=
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=
+
+[Package|Satelite|Files Removed]
+d:\vb50\satelite\satelite.hlp=
+c:\archivos de programa\microsoft visual studio\vb98\wizards\pdwizard\redist\mdac_typ.exe=
+
+[Package|Satelite|Files In Project]
+C:\WINNT\system32\msvbvm60.dll=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+D:\Archivos de programa\Microsoft Office\Office\EXCEL9.OLB=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\WINNT\system32\Threed32.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\WINNT\system32\COMDLG32.OCX=Yes
+C:\WINNT\system32\Comctl32.ocx=Yes
+C:\WINNT\system32\TABCTL32.OCX=Yes
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINNT\system32\VB6STKIT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\WINNT\system32\msmask32.ocx=Yes
+C:\WINNT\system32\Grid32.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+D:\VB50\Satelite\Mae\Satelite.cfg=Yes
+D:\VB50\Satelite\Version.exe=Yes
+D:\VB50\Satelite v1.2\Satelite.exe=Yes
+D:\VB50\Satelite v1.2\Satelite.hlp=Yes
+D:\VB50\Satelite v1.2\Satelite.cnt=Yes
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=Yes
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=Yes
+
+[Package|Satelite|Configure Registry Files]
+Applicable=No
+
+[Package|Satelite|Configure Remote Servers]
+Applicable=No
+
+[Package|Satelite|Install Locations]
+D:\VB50\Satelite\Satelite.exe=$(AppPath)
+C:\WINNT\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Office\Office\EXCEL9.OLB=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msador15.dll=$(CommonFilesSys)\ADO
+C:\Archivos de programa\Archivos comunes\System\ado\msado25.tlb=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\Dao350.dll=$(MSDAOPath)
+C:\WINNT\system32\Msjet35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msjter35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msjint35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msrd2x35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msrepl35.dll=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\Vb5db.dll=$(WinSysPath)
+C:\WINNT\system32\Threed32.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINNT\system32\Comctl32.ocx=$(WinSysPath)
+C:\WINNT\system32\TABCTL32.OCX=$(WinSysPath)
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINNT\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+D:\VB50\Satelite\Mae\Satelite.db=$(AppPath)\Mae
+D:\VB50\Satelite\Ejemplos\Cargos y Abonos.sql=$(AppPath)\Ejemplos
+D:\VB50\Satelite\Ejemplos\Reporte de Siniestralidad.sql=$(AppPath)\Ejemplos
+D:\VB50\Satelite\Consultas\Ejemplos\Cargos y Abonos.sql=$(AppPath)\Consultas\Ejemplos
+D:\VB50\Satelite\Consultas\Ejemplos\Reporte de Siniestralidad.sql=$(AppPath)\Consultas\Ejemplos
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINNT\system32\msmask32.ocx=$(WinSysPath)
+C:\WINNT\system32\Grid32.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(WinPath)
+D:\VB50\Satelite\Mae\Satelite.cfg=$(AppPath)\Mae
+D:\VB50\Satelite\Version.exe=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.exe=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.hlp=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.cnt=$(AppPath)
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=$(AppPath)
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=$(AppPath)
+
+[Package|Satelite|Configure Shared Files]
+Applicable=Yes
+D:\VB50\Satelite\Satelite.exe=No
+D:\VB50\Satelite\Mae\Satelite.db=No
+D:\VB50\Satelite\Ejemplos\Cargos y Abonos.sql=No
+D:\VB50\Satelite\Ejemplos\Reporte de Siniestralidad.sql=No
+D:\VB50\Satelite\Consultas\Ejemplos\Cargos y Abonos.sql=No
+D:\VB50\Satelite\Consultas\Ejemplos\Reporte de Siniestralidad.sql=No
+D:\VB50\Satelite\Mae\Satelite.cfg=No
+D:\VB50\Satelite\Version.exe=No
+D:\VB50\Satelite v1.2\Satelite.exe=No
+D:\VB50\Satelite v1.2\Satelite.hlp=No
+D:\VB50\Satelite v1.2\Satelite.cnt=No
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=No
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=No
+
+[Package|Satelite|Distribution]
+Type=single
+Size=
+Title=Satelite
+
+[Package|Satelite|IconGroups]
+Group0=Satelite
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Satelite|Satelite]
+Icon1=Satelite.exe
+Title1=Satelite
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Satelite|Package]
+PackageFolder=D:\VB50\Satelite v1.2\Package Satelite
+ProjectFolder=D:\VB50\Satelite v1.2
+ServerSideCab=
+File1=D:\VB50\Satelite v1.2\Package Satelite\setup.exe
+File2=D:\VB50\Satelite v1.2\Package Satelite\Setup.Lst
+File3=D:\VB50\Satelite v1.2\Package Satelite\Satelite.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|Dep File 1|Root]
+SubWizProgID=PDWizard.DepPkgSubWiz
+BuildFolder=D:\VB50\Satelite\Security
+
+[Package|Dep File 1|Configure DAO ISAMs]
+Applicable=No
+Xbase=No
+Excel=No
+Exchange=No
+Text=No
+Jet 2.x=No
+Lotus=No
+Paradox=No
+
+[Package|Dep File 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Dep File 1|Files Found]
+
+[Package|Dep File 1|Files Released]
+reporte de siniestralidad.sql=
+Cargos y Abonos.sql=
+satelite.db=
+AdmSatelite.cnt=
+AdmSatelite.hlp=
+Satelite.cnt=
+version.exe=
+satelite.cfg=
+
+[Package|Dep File 1|Missing Dependency Information]
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=
+C:\Archivos de programa\Archivos comunes\System\ado\msado25.tlb=
+D:\Archivos de programa\Microsoft Office\Office\EXCEL9.OLB=
+D:\VB50\Satelite\Version.exe=
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=
+
+[Package|Dep File 1|Out-of-Date Dependency Information]
+C:\WINNT\system32\TABCTL32.OCX=
+
+[Package|Dep File 1|Files Added]
+satelite.cfg=
+version.exe=
+satelite.cnt=
+admsatelite.hlp=
+admsatelite.cnt=
+
+[Package|Dep File 1|Files Removed]
+d:\vb50\satelite\satelite.hlp=
+c:\archivos de programa\microsoft visual studio\vb98\wizards\pdwizard\redist\mdac_typ.exe=
+
+[Package|Dep File 1|Files In Project]
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=Yes
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+D:\VB50\Satelite\Security\Satelite v1.3\Satelite.exe=Yes
+C:\WINDOWS\system32\MSVBVM60.DLL=Yes
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msador15.dll=Yes
+C:\Archivos de programa\Archivos comunes\System\ado\msado25.tlb=Yes
+C:\WINDOWS\system32\Threed32.ocx=Yes
+C:\WINDOWS\system32\Comdlg32.ocx=Yes
+C:\WINDOWS\system32\comctl32.ocx=Yes
+C:\WINDOWS\system32\tabctl32.ocx=Yes
+C:\WINDOWS\system32\Msmask32.ocx=Yes
+C:\WINDOWS\system32\Grid32.ocx=Yes
+D:\VB50\Satelite\Security\Satelite v1.3\Satelite.hlp=Yes
+
+[Package|Dep File 1|Configure Registry Files]
+Applicable=No
+
+[Package|Dep File 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Dep File 1|Install Locations]
+D:\VB50\Satelite\Satelite.exe=$(AppPath)
+C:\WINNT\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\Archivos de programa\Microsoft Office\Office\EXCEL9.OLB=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\System\ado\msador15.dll=$(CommonFilesSys)\ADO
+C:\Archivos de programa\Archivos comunes\System\ado\msado25.tlb=$(WinSysPath)
+C:\Archivos de programa\Archivos comunes\Microsoft Shared\DAO\Dao350.dll=$(MSDAOPath)
+C:\WINNT\system32\Msjet35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msjter35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msjint35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\vbajet32.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\expsrv.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msrd2x35.dll=$(WinSysPathSysFile)
+C:\WINNT\system32\Msrepl35.dll=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\Vb5db.dll=$(WinSysPath)
+C:\WINNT\system32\Threed32.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\COMDLG32.OCX=$(WinSysPath)
+C:\WINNT\system32\Comctl32.ocx=$(WinSysPath)
+C:\WINNT\system32\TABCTL32.OCX=$(WinSysPath)
+C:\Archivos de programa\Spread25\BIN\ss32x25.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINNT\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+D:\VB50\Satelite\Mae\Satelite.db=$(AppPath)\Mae
+D:\VB50\Satelite\Ejemplos\Cargos y Abonos.sql=$(AppPath)\Ejemplos
+D:\VB50\Satelite\Ejemplos\Reporte de Siniestralidad.sql=$(AppPath)\Ejemplos
+D:\VB50\Satelite\Consultas\Ejemplos\Cargos y Abonos.sql=$(AppPath)\Consultas\Ejemplos
+D:\VB50\Satelite\Consultas\Ejemplos\Reporte de Siniestralidad.sql=$(AppPath)\Consultas\Ejemplos
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINNT\system32\msmask32.ocx=$(WinSysPath)
+C:\WINNT\system32\Grid32.ocx=$(WinSysPath)
+C:\Archivos de programa\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(WinPath)
+D:\VB50\Satelite\Mae\Satelite.cfg=$(AppPath)\Mae
+D:\VB50\Satelite\Version.exe=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.exe=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.hlp=$(AppPath)
+D:\VB50\Satelite v1.2\Satelite.cnt=$(AppPath)
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=$(AppPath)
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=$(AppPath)
+D:\VB50\Satelite\Security\Satelite v1.3\Satelite.exe=$(AppPath)
+C:\WINDOWS\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Archivos de programa\Microsoft Office\OFFICE11\EXCEL.EXE=$(AppPath)
+C:\WINDOWS\system32\Threed32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\Comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\comctl32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\tabctl32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\Msmask32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\Grid32.ocx=$(AppPath)
+D:\VB50\Satelite\Security\Satelite v1.3\Satelite.hlp=$(AppPath)
+
+[Package|Dep File 1|Configure Shared Files]
+Applicable=Yes
+D:\VB50\Satelite\Satelite.exe=No
+D:\VB50\Satelite\Mae\Satelite.db=No
+D:\VB50\Satelite\Ejemplos\Cargos y Abonos.sql=No
+D:\VB50\Satelite\Ejemplos\Reporte de Siniestralidad.sql=No
+D:\VB50\Satelite\Consultas\Ejemplos\Cargos y Abonos.sql=No
+D:\VB50\Satelite\Consultas\Ejemplos\Reporte de Siniestralidad.sql=No
+D:\VB50\Satelite\Mae\Satelite.cfg=No
+D:\VB50\Satelite\Version.exe=No
+D:\VB50\Satelite v1.2\Satelite.exe=No
+D:\VB50\Satelite v1.2\Satelite.hlp=No
+D:\VB50\Satelite v1.2\Satelite.cnt=No
+D:\VB50\Satelite v1.2\AdmSatelite.hlp=No
+D:\VB50\Satelite v1.2\AdmSatelite.cnt=No
+
+[Package|Dep File 1|Distribution]
+Type=single
+Size=
+Title=Satelite
+
+[Package|Dep File 1|IconGroups]
+Group0=Satelite
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Dep File 1|Satelite]
+Icon1=Satelite.exe
+Title1=Satelite
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Dep File 1|DepFile]
+DepCabFile=Satelite.CAB
+DepCabRun=Satelite.INF
+
+[Package|Dep File 1|Package]
+PackageFolder=D:\VB50\Satelite\Security
+ProjectFolder=D:\VB50\Satelite\Security\Satelite v1.3
+ServerSideCab=
+File1=D:\VB50\Satelite\Security\Satelite.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

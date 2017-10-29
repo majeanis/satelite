@@ -1,0 +1,18 @@
+:Base Satelite.hlp
+:Title Satelite
+:Index dummy=dummy.hlp ;(This is necessary when using KLinks - because of a bug in the help
+:Link dummy.hlp        ; compiler. Without this only the first keyword would be looked up!)
+1 Consultas
+2 Ejecutar una consulta=SHM_contents0001@Satelite.hlp
+2 Exportar resultado de una consulta a Excel=SHM_contents0002@Satelite.hlp
+2 Exportar resultado de una consulta a archivo de texto=SHM_contents0003@Satelite.hlp
+2 Buscar texto dentro del resultado de una consulta=SHM_contents0004@Satelite.hlp
+1 Organizar consultas
+2 Crear una carpeta=SHM_contents0005@Satelite.hlp
+2 Eliminar una carpeta=SHM_contents0006@Satelite.hlp
+2 Mover una consulta a una carpeta=SHM_contents0007@Satelite.hlp
+1 Organizar ventanas de consultas
+2 Abrir nueva ventana=SHM_contents0008@Satelite.hlp
+2 Organizar ventanas en Cascada=SHM_contents0009@Satelite.hlp
+2 Organizar ventanas verticalmente=SHM_contents0010@Satelite.hlp
+2 Organizar ventanas horizontalmente=SHM_contents0011@Satelite.hlp

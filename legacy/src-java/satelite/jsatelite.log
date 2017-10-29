@@ -1,0 +1,143 @@
+23/08/2013 16:51:25 : debug : Inicio
+23/08/2013 16:51:29 : debug : Lazamos tarea o hilo de Login
+23/08/2013 16:51:29 : debug : Validacion de Login
+23/08/2013 16:51:29 : debug : Carga de drive inicio
+23/08/2013 16:51:29 : debug : Carga de drive fin
+23/08/2013 16:51:29 : debug : Descencripta inicio
+23/08/2013 16:51:30 : debug : Desencripta fin
+23/08/2013 16:51:30 : debug : GetConn inicio
+23/08/2013 16:51:30 : debug : Carga de drive fin
+23/08/2013 16:51:31 : debug : Login Ok
+23/08/2013 16:51:31 : debug : inicio carga de arbol
+23/08/2013 16:51:32 : debug : Fin carga de arbol
+23/08/2013 16:51:34 : debug : Id de consulta 196
+23/08/2013 16:51:37 : debug : FetchSize: 10000
+21/11/2013 17:50:13 : debug : Inicio
+21/11/2013 17:50:16 : debug : Lazamos tarea o hilo de Login
+21/11/2013 17:50:16 : debug : Validacion de Login
+21/11/2013 17:50:16 : debug : Carga de drive inicio
+21/11/2013 17:50:16 : debug : Carga de drive fin
+21/11/2013 17:50:16 : debug : Descencripta inicio
+21/11/2013 17:50:16 : debug : Desencripta fin
+21/11/2013 17:50:16 : debug : GetConn inicio
+21/11/2013 17:50:17 : debug : Carga de drive fin
+21/11/2013 17:50:17 : debug : Login Ok
+21/11/2013 17:50:17 : debug : inicio carga de arbol
+21/11/2013 17:50:19 : debug : Fin carga de arbol
+21/11/2013 17:50:23 : debug : Id de consulta 2174
+21/11/2013 17:52:25 : debug : Inicio
+21/11/2013 17:52:28 : debug : Lazamos tarea o hilo de Login
+21/11/2013 17:52:28 : debug : Validacion de Login
+21/11/2013 17:52:28 : debug : Carga de drive inicio
+21/11/2013 17:52:28 : debug : Carga de drive fin
+21/11/2013 17:52:28 : debug : Descencripta inicio
+21/11/2013 17:52:28 : debug : Desencripta fin
+21/11/2013 17:52:28 : debug : GetConn inicio
+21/11/2013 17:52:28 : debug : Carga de drive fin
+21/11/2013 17:52:29 : debug : Login Ok
+21/11/2013 17:52:29 : debug : inicio carga de arbol
+21/11/2013 17:52:31 : debug : Fin carga de arbol
+21/11/2013 17:53:32 : debug : Inicio
+21/11/2013 17:53:35 : debug : Lazamos tarea o hilo de Login
+21/11/2013 17:53:35 : debug : Validacion de Login
+21/11/2013 17:53:35 : debug : Carga de drive inicio
+21/11/2013 17:53:35 : debug : Carga de drive fin
+21/11/2013 17:53:35 : debug : Descencripta inicio
+21/11/2013 17:53:35 : debug : Desencripta fin
+21/11/2013 17:53:35 : debug : GetConn inicio
+21/11/2013 17:54:02 : debug : Inicio
+21/11/2013 17:54:05 : debug : Lazamos tarea o hilo de Login
+21/11/2013 17:54:05 : debug : Validacion de Login
+21/11/2013 17:54:05 : debug : Carga de drive inicio
+21/11/2013 17:54:05 : debug : Carga de drive fin
+21/11/2013 17:54:05 : debug : Descencripta inicio
+21/11/2013 17:54:05 : debug : Desencripta fin
+21/11/2013 17:54:05 : debug : GetConn inicio
+21/11/2013 17:54:05 : debug : Carga de drive fin
+21/11/2013 17:54:05 : debug : Login Ok
+21/11/2013 17:54:05 : debug : inicio carga de arbol
+21/11/2013 17:54:06 : debug : Fin carga de arbol
+21/11/2013 18:00:13 : debug : Inicio
+21/11/2013 18:00:17 : debug : Lazamos tarea o hilo de Login
+21/11/2013 18:00:17 : debug : Validacion de Login
+21/11/2013 18:00:17 : debug : Carga de drive inicio
+21/11/2013 18:00:17 : debug : Carga de drive fin
+21/11/2013 18:00:17 : debug : Descencripta inicio
+21/11/2013 18:00:17 : debug : Desencripta fin
+21/11/2013 18:00:17 : debug : GetConn inicio
+21/11/2013 18:00:18 : debug : Carga de drive fin
+21/11/2013 18:00:18 : debug : Error de login: ORA-20001: Usuario y/o claves incorrectos
+ORA-06512: at "ESEGADM.TP_PKG_SEG_NEW", line 318
+ORA-06512: at line 1
+
+21/11/2013 18:00:22 : debug : Lazamos tarea o hilo de Login
+21/11/2013 18:00:22 : debug : Validacion de Login
+21/11/2013 18:00:22 : debug : Carga de drive inicio
+21/11/2013 18:00:22 : debug : Carga de drive fin
+21/11/2013 18:00:22 : debug : Descencripta inicio
+21/11/2013 18:00:22 : debug : Desencripta fin
+21/11/2013 18:00:22 : debug : GetConn inicio
+21/11/2013 18:00:23 : debug : Carga de drive fin
+21/11/2013 18:00:23 : debug : Login Ok
+21/11/2013 18:00:23 : debug : inicio carga de arbol
+21/11/2013 18:00:24 : debug : Fin carga de arbol
+21/11/2013 18:02:53 : debug : Inicio
+21/11/2013 18:02:55 : debug : Lazamos tarea o hilo de Login
+21/11/2013 18:02:55 : debug : Validacion de Login
+21/11/2013 18:02:55 : debug : Carga de drive inicio
+21/11/2013 18:02:55 : debug : Carga de drive fin
+21/11/2013 18:02:55 : debug : Descencripta inicio
+21/11/2013 18:02:55 : debug : Desencripta fin
+21/11/2013 18:02:55 : debug : GetConn inicio
+21/11/2013 18:02:56 : debug : Carga de drive fin
+21/11/2013 18:02:56 : debug : Login Ok
+21/11/2013 18:02:56 : debug : inicio carga de arbol
+21/11/2013 18:02:57 : debug : Fin carga de arbol
+21/11/2013 18:03:15 : debug : Id de consulta 2434
+21/11/2013 18:03:15 : debug : FetchSize: 10000
+21/11/2013 18:03:51 : debug : Id de consulta 2437
+21/11/2013 18:03:59 : debug : FetchSize: 10000
+21/11/2013 18:04:07 : debug : Id de consulta 2174
+21/11/2013 18:04:22 : debug : Id de consulta 2435
+21/11/2013 18:04:22 : debug : FetchSize: 10000
+06/03/2014 22:20:55 : debug : Inicio
+06/03/2014 22:21:00 : debug : Lazamos tarea o hilo de Login
+06/03/2014 22:21:00 : debug : Validacion de Login
+06/03/2014 22:21:00 : debug : Carga de drive inicio
+06/03/2014 22:21:00 : debug : Carga de drive fin
+06/03/2014 22:21:00 : debug : Descencripta inicio
+06/03/2014 22:21:00 : debug : Desencripta fin
+06/03/2014 22:21:00 : debug : GetConn inicio
+06/03/2014 22:21:01 : debug : Carga de drive fin
+06/03/2014 22:21:05 : debug : Login Ok
+06/03/2014 22:21:05 : debug : inicio carga de arbol
+06/03/2014 22:21:13 : debug : Fin carga de arbol
+06/03/2014 22:21:21 : debug : Id de consulta 196
+06/03/2014 22:22:21 : debug : Inicio
+06/03/2014 22:22:26 : debug : Lazamos tarea o hilo de Login
+06/03/2014 22:22:26 : debug : Validacion de Login
+06/03/2014 22:22:26 : debug : Carga de drive inicio
+06/03/2014 22:22:26 : debug : Carga de drive fin
+06/03/2014 22:22:26 : debug : Descencripta inicio
+06/03/2014 22:22:26 : debug : Desencripta fin
+06/03/2014 22:22:26 : debug : GetConn inicio
+06/03/2014 22:22:27 : debug : Carga de drive fin
+06/03/2014 22:22:33 : debug : Login Ok
+06/03/2014 22:22:33 : debug : inicio carga de arbol
+06/03/2014 22:22:42 : debug : Fin carga de arbol
+06/03/2014 22:22:50 : debug : Id de consulta 196
+06/03/2014 22:22:52 : debug : FetchSize: 10000
+07/03/2014 08:34:17 : debug : Inicio
+07/03/2014 08:34:23 : debug : Lazamos tarea o hilo de Login
+07/03/2014 08:34:23 : debug : Validacion de Login
+07/03/2014 08:34:23 : debug : Carga de drive inicio
+07/03/2014 08:34:23 : debug : Carga de drive fin
+07/03/2014 08:34:23 : debug : Descencripta inicio
+07/03/2014 08:34:23 : debug : Desencripta fin
+07/03/2014 08:34:23 : debug : GetConn inicio
+07/03/2014 08:34:24 : debug : Carga de drive fin
+07/03/2014 08:34:24 : debug : Login Ok
+07/03/2014 08:34:24 : debug : inicio carga de arbol
+07/03/2014 08:34:25 : debug : Fin carga de arbol
+07/03/2014 08:34:28 : debug : Id de consulta 196
+07/03/2014 08:34:28 : debug : FetchSize: 10000

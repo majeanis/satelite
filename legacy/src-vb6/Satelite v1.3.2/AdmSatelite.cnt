@@ -1,0 +1,50 @@
+:Base AdmSatelite.hlp
+:Title Administración sistema de consultas Satélite
+:Index dummy=dummy.hlp ;(This is necessary when using KLinks - because of a bug in the help
+:Link dummy.hlp        ; compiler. Without this only the first keyword would be looked up!)
+1 Instalación del sistema
+2 Creación de base de datos del sistema=SHM_contents0001@AdmSatelite.hlp
+2 Instalación del sistema cliente=SHM_contents0002@AdmSatelite.hlp
+2 Ingreso al sistema=SHM_contents0003@AdmSatelite.hlp
+1 Bases de Datos
+2 ¿ Qué es una conexión a una base de datos ?=SHM_contents0004@AdmSatelite.hlp
+2 Crear una conexión a una base de datos=SHM_contents0005@AdmSatelite.hlp
+2 Modificar una conexión a una base de datos=SHM_contents0006@AdmSatelite.hlp
+2 Eliminar una conexión a una base de datos=SHM_contents0007@AdmSatelite.hlp
+1 Tipos de usuarios
+2 ¿ Qué es un tipo de usuario ?=SHM_contents0008@AdmSatelite.hlp
+2 Crear un tipo de usuario=SHM_contents0009@AdmSatelite.hlp
+2 Modificar un tipo de usuario=SHM_contents0010@AdmSatelite.hlp
+2 Eliminar un tipo de usuario=SHM_contents0011@AdmSatelite.hlp
+1 Usuarios
+2 Crear un usuario=SHM_contents0012@AdmSatelite.hlp
+2 Modificar un usuario=SHM_contents0013@AdmSatelite.hlp
+2 Eliminar un usuario=SHM_contents0014@AdmSatelite.hlp
+2 Asignar una consulta a un usuario=SHM_contents0015@AdmSatelite.hlp
+2 Quitar una consulta a un usuario=SHM_contents0016@AdmSatelite.hlp
+2 Asignar una agrupación de consultas a un usuario=SHM_contents0017@AdmSatelite.hlp
+2 Quitar una agrupación de consultas a un usuario=SHM_contents0018@AdmSatelite.hlp
+1 Consultas
+2 Crear una consulta=SHM_contents0019@AdmSatelite.hlp
+2 Definir parámetros o filtros para una consulta=SHM_contents0020@AdmSatelite.hlp
+2 Definir el formato de salida para las columnas de su consulta=SHM_contents0021@AdmSatelite.hlp
+2 Modificar una consulta=SHM_contents0022@AdmSatelite.hlp
+2 Eliminar una consulta=SHM_contents0023@AdmSatelite.hlp
+2 Asignar un usuario a una consulta=SHM_contents0024@AdmSatelite.hlp
+2 Quitar un usuario a una consulta=SHM_contents0025@AdmSatelite.hlp
+2 Asignar una agrupación de consultas a una consulta=SHM_contents0026@AdmSatelite.hlp
+2 Quitar una agrupación de consultas a una consulta=SHM_contents0027@AdmSatelite.hlp
+1 Agrupación de consultas
+2 ¿ Qué es una agrupación de consultas ?=SHM_contents0028@AdmSatelite.hlp
+2 Crear una agrupación de consultas=SHM_contents0029@AdmSatelite.hlp
+2 Modificar una agrupación de consultas=SHM_contents0030@AdmSatelite.hlp
+2 Eliminar una agrupación de consultas=SHM_contents0031@AdmSatelite.hlp
+2 Asignar un usuario a una agrupación de consultas=SHM_contents0032@AdmSatelite.hlp
+2 Quitar un usuario a una agrupación de consultas=SHM_contents0033@AdmSatelite.hlp
+2 Asignar una consulta a una agrupación de consultas=SHM_contents0034@AdmSatelite.hlp
+2 Quitar una consulta a una agrupación de consultas=SHM_contents0035@AdmSatelite.hlp
+1 Ejemplos
+2 Consulta simple de Ordenes de compra=SHM_contents0036@AdmSatelite.hlp
+2 Consulta de Ordenes de compra, con filtro por Cliente y ayuda de valores para el filtro=SHM_contents0037@AdmSatelite.hlp
+2 Consulta de Ordenes de compra, con filtro por Fecha de compra=SHM_contents0038@AdmSatelite.hlp
+2 Consulta de Clientes, según País y Ciudad, filtrando la Ciudad según el País=SHM_contents0039@AdmSatelite.hlp
