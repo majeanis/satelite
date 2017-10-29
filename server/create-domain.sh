@@ -10,11 +10,18 @@ PORT_BASE=9000
 ADMIN_USER="admin"
 ADMIN_PASS="manager1"
 ADMIN_PORT=$[$PORT_BASE + 48]
-DB_HOST="192.168.56.11"
-DB_PORT=1521
-DB_SID="orcl"
-DB_USER="satelite"
-DB_PASS="satelite"
+DB_ORCL_HOST="192.168.56.11"
+DB_ORCL_PORT=1521
+DB_ORCL_SID="orcl"
+DB_ORCL_USER="satelite"
+DB_ORCL_PASS="satelite"
+
+DB_SQLS_HOST="192.168.56.12"
+DB_SQLS_PORT=1433
+DB_SQLS_SID="Satelite Security"
+DB_SQLS_USER="satelite"
+DB_SQLS_PASS="satelite"
+
 AS_INSTALL=$HOME_GLASSFISH/glassfish
 AS_ADMIN="$AS_INSTALL/bin/asadmin"
 AS_ADMIN_AUTH="$AS_ADMIN --user $ADMIN_USER --passwordfile $PASSWORD_FILE --port $ADMIN_PORT"
@@ -52,19 +59,24 @@ function showParameters
    echo ""
    echo "VALORES DE EJECUCION"
    echo "===================="
-   echo "AS_INSTALL    :" $AS_INSTALL
-   echo "AS_ADMIN      :" $AS_ADMIN
-   echo "DOMINIO       :" $NOMBRE_DOMINIO
-   echo "PORT BASE     :" $PORT_BASE
-   echo "ADMIN PORT    :" $ADMIN_PORT
-   echo "ADMIN USER    :" $ADMIN_USER
-   echo "ADMIN PASSWORD:" $ADMIN_PASS
-   echo "DOMAIN ROOT   :" $DOMAIN_ROOT_DIR
-   echo "DB.HOST       :" $DB_HOST
-   echo "DB.PORT       :" $DB_PORT
-   echo "DB.SID        :" $DB_SID
-   echo "DB.USERNAME   :" $DB_USER
-   echo "DB.PASSWORD   :" $DB_PASS
+   echo "AS_INSTALL  :" $AS_INSTALL
+   echo "AS_ADMIN    :" $AS_ADMIN
+   echo "DOMINIO     :" $NOMBRE_DOMINIO
+   echo "PORT BASE   :" $PORT_BASE
+   echo "ADMIN PORT  :" $ADMIN_PORT
+   echo "ADMIN USER  :" $ADMIN_USER
+   echo "ADMIN PASS  :" $ADMIN_PASS
+   echo "DOMAIN ROOT :" $DOMAIN_ROOT_DIR
+   echo "DB.ORCL.HOST:" $DB_ORCL_HOST
+   echo "DB.ORCL.PORT:" $DB_ORCL_PORT
+   echo "DB.ORCL.SID :" $DB_ORCL_SID
+   echo "DB.ORCL.USER:" $DB_ORCL_USER
+   echo "DB.ORCL.PASS:" $DB_ORCL_PASS
+   echo "DB.SQLS.HOST:" $DB_SQLS_HOST
+   echo "DB.SQLS.PORT:" $DB_SQLS_PORT
+   echo "DB.SQLS.SID :" $DB_SQLS_SID
+   echo "DB.SQLS.USER:" $DB_SQLS_USER
+   echo "DB.SQLS.PASS:" $DB_SQLS_PASS
    echo ""
 }
 
@@ -244,6 +256,49 @@ function createJdbcOracle
 }
 
 #
+# Función que crea un JDBC - ORACLE
+function createJdbcSqlServer
+{
+   local NAME=$1
+   local DB_HOST=$2
+   local DB_PORT=$3
+   local DB_SID=$4
+   local DB_USER=$5
+   local DB_PASS=$6
+   
+   local POOL_NAME="$NAME""Pool"
+   local JNDI_NAME="jdbc/$NAME"
+   local JDBC_URL="jdbc\:sqlserver\://$DB_HOST\:$DB_PORT\;databaseName\=$DB_SID"
+   local CHECK_POOL=`$AS_ADMIN_AUTH list-jdbc-connection-pools|grep $POOL_NAME`
+
+   #
+   # Eliminamos la configuración actual
+   if [ "$CHECK_POOL" != "" ]; then
+      $AS_ADMIN_AUTH delete-jdbc-connection-pool --cascade true $POOL_NAME
+      checkEjecucion;
+   fi;
+   
+   #
+   # Creación del Pool JDBC
+   $AS_ADMIN_AUTH create-jdbc-connection-pool \
+                  --restype javax.sql.ConnectionPoolDataSource \
+                  --datasourceclassname com.microsoft.sqlserver.jdbc.SQLServerConnectionPoolDataSource \
+                  --ping true \
+                  --steadypoolsize 8 \
+                  --maxpoolsize 32 \
+                  --property URL="$JDBC_URL":user=$DB_USER:password=$DB_PASS \
+                  $POOL_NAME
+   checkEjecucion;
+
+   #
+   # Creación del DataSource
+   $AS_ADMIN_AUTH create-jdbc-resource \
+                  --enabled true \
+                  --connectionpoolid $POOL_NAME \
+                  $JNDI_NAME
+}
+
+#
 # Función que permite eliminar una opción desde la JVM
 function deleteJvmOption 
 {
@@ -317,7 +372,8 @@ function setupDomain
    # Configuración del Pool a la Base Datos
    echo ""
    echo "Configurando Data Source JDBC..."
-   createJdbcOracle "satelite" "$DB_HOST" "$DB_PORT" "$DB_SID" "$DB_USER" "$DB_PASS"
+   createJdbcOracle    "satelite" "$DB_ORCL_HOST" "$DB_ORCL_PORT" "$DB_ORCL_SID" "$DB_ORCL_USER" "$DB_ORCL_PASS"
+   createJdbcSqlServer "legacy"   "$DB_SQLS_HOST" "$DB_SQLS_PORT" "$DB_SQLS_SID" "$DB_SQLS_USER" "$DB_SQLS_PASS"
 
    #
    # Configuración de la VM
