@@ -9,14 +9,20 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<release>1.0.0</release>
-        <glassfish.home>/apps/glassfish4.1.2</glassfish.home>
-        <glassfish.domainDirectory>/apps/gf_domains</glassfish.domainDirectory>
-        <glassfish.domainName>satelite</glassfish.domainName>
-        <glassfish.adminUser>admin</glassfish.adminUser>
-        <glassfish.adminPassword>manager1</glassfish.adminPassword>
-        <glassfish.portBase>9000</glassfish.portBase>
-        <glassfish.portAdmin>9048</glassfish.portAdmin>
-        <glassfish.portHttp>9080</glassfish.portHttp>
+
+		<versionSpring>5.0.1.RELEASE</versionSpring>
+		<versionMyBatis>3.4.5</versionMyBatis>
+		<versionMyBatisSpring>1.3.1</versionMyBatisSpring>
+		<versionLog4j>2.9.1</versionLog4j>
+
+		<glassfish.home>/apps/glassfish4.1.2</glassfish.home>
+		<glassfish.domainDirectory>/apps/gf_domains</glassfish.domainDirectory>
+		<glassfish.domainName>satelite</glassfish.domainName>
+		<glassfish.adminUser>admin</glassfish.adminUser>
+		<glassfish.adminPassword>manager1</glassfish.adminPassword>
+		<glassfish.portBase>9000</glassfish.portBase>
+		<glassfish.portAdmin>9048</glassfish.portAdmin>
+		<glassfish.portHttp>9080</glassfish.portHttp>
 	</properties>
 
 	<build>
@@ -35,16 +41,16 @@
 						<skinnyWars>true</skinnyWars>
 						<archive>
 							<addMavenDescriptor>true</addMavenDescriptor>
-	                        <index>true</index>
+							<index>true</index>
 							<manifest>
 								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 							</manifest>
-	                        <manifestEntries>
+							<manifestEntries>
 								<Build-Time>${maven.build.timestamp}</Build-Time>
 								<Build-OS>${os.name}</Build-OS>
-	                        </manifestEntries>
-	                    </archive>							
+							</manifestEntries>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -108,9 +114,9 @@
 				</configuration>
 			</plugin>
 			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-dependency-plugin</artifactId>
-		        <version>3.0.2</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<id>copy</id>
@@ -130,14 +136,69 @@
 		</plugins>
 	</build>
 
-	<modules>
-		<module>../satelite-web</module>
-		<module>../satelite-servlet</module>
-		<module>../satelite-ear</module>
-	</modules>
-
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${versionLog4j}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${versionLog4j}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-web</artifactId>
+				<version>${versionLog4j}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${versionSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${versionSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${versionSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${versionSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${versionSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${versionMyBatisSpring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${versionMyBatis}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-web-api</artifactId>
+				<version>7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.microsoft.sqlserver</groupId>
+				<artifactId>mssql-jdbc</artifactId>
+				<version>6.2.2.jre8</version>
+			</dependency>
 			<dependency>
 				<groupId>cl.majeanis.satelite</groupId>
 				<artifactId>satelite-servlet</artifactId>
@@ -152,4 +213,11 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<modules>
+		<module>../satelite-web</module>
+		<module>../satelite-servlet</module>
+		<module>../satelite-ear</module>
+	</modules>
+
 </project>
