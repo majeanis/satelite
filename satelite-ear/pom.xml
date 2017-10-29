@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cl.majeanis.satelite</groupId>
+		<artifactId>satelite-pom</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../satelite-pom</relativePath>
+	</parent>
+
+	<artifactId>satelite-ear</artifactId>
+	<packaging>ear</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<modules>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>satelite-servlet</artifactId>
+							<contextRoot>/satelite/servlet</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>satelite-web</artifactId>
+							<contextRoot>/satelite/web</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<deployables>
+						<deployable>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<type>ear</type>
+						</deployable>
+					</deployables>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>cl.majeanis.satelite</groupId>
+			<artifactId>satelite-servlet</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>cl.majeanis.satelite</groupId>
+			<artifactId>satelite-web</artifactId>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+</project>
