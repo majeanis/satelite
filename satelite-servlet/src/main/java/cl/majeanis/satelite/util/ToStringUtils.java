@@ -3,6 +3,7 @@ package cl.majeanis.satelite.util;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -39,5 +40,19 @@ public class ToStringUtils
         if (cadena == null)
             return "";
         return cadena;
+    }
+    
+    public static String toString(List<String> lista)
+    {
+        if( Utils.sizeOf(lista) == 0 )
+            return "";
+
+        StringBuilder sb = new StringBuilder();
+        for(String obj: lista)
+        {
+            sb.append( "," + obj);
+        }
+
+        return "[" + sb.substring(1) + "]";
     }
 }
