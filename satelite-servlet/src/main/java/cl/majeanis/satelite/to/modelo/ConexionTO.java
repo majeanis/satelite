@@ -1,6 +1,7 @@
 package cl.majeanis.satelite.to.modelo;
 
 import cl.majeanis.satelite.to.PersistibleTO;
+import cl.majeanis.satelite.util.tipo.Encrypted;
 
 public class ConexionTO extends PersistibleTO
 {
@@ -9,7 +10,7 @@ public class ConexionTO extends PersistibleTO
     private String nombre;
     private String url;
     private String usuario;
-    private String password;
+    private Encrypted password;
     private DriverTO driver;
 
     public String getNombre()
@@ -36,11 +37,11 @@ public class ConexionTO extends PersistibleTO
     {
         this.usuario = usuario;
     }
-    public String getPassword()
+    public Encrypted getPassword()
     {
         return password;
     }
-    public void setPassword(String password)
+    public void setPassword(Encrypted password)
     {
         this.password = password;
     }
