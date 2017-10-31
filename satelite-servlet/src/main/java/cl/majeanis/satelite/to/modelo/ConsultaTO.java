@@ -1,7 +1,7 @@
 package cl.majeanis.satelite.to.modelo;
 
 import cl.majeanis.satelite.to.PersistibleTO;
-import cl.majeanis.satelite.util.tipo.RangoHora;
+import cl.majeanis.satelite.util.tipo.Horario;
 import cl.majeanis.satelite.util.tipo.TipoConsulta;
 
 public class ConsultaTO extends PersistibleTO
@@ -11,7 +11,7 @@ public class ConsultaTO extends PersistibleTO
     private String nombre;
     private String sql;
     private TipoConsulta tipo;
-    private RangoHora horario;
+    private Horario horario;
     private Boolean vigente;
     private UsuarioTO dueno;
     private UsuarioTO creador;
@@ -41,11 +41,11 @@ public class ConsultaTO extends PersistibleTO
     {
         this.tipo = tipo;
     }
-    public RangoHora getHorario()
+    public Horario getHorario()
     {
         return horario;
     }
-    public void setHorario(RangoHora horario)
+    public void setHorario(Horario horario)
     {
         this.horario = horario;
     }
@@ -81,6 +81,4 @@ public class ConsultaTO extends PersistibleTO
     {
         this.conexion = conexion;
     }
-}   
-   
-
+}
