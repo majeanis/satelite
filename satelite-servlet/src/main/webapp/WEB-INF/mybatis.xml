@@ -9,8 +9,10 @@
 	</settings>
 
 	<typeAliases>
+		<typeAlias type="cl.majeanis.satelite.util.tipo.Encrypted" alias="Encrypted" />
 	</typeAliases>
 
 	<typeHandlers>
+        <package name="cl.majeanis.satelite.utl.po" />	
 	</typeHandlers>
 </configuration>
