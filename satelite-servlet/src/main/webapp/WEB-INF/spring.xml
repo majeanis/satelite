@@ -35,9 +35,9 @@
 	</bean>
 
 	<mybatis:scan base-package="cl.majeanis.satelite.po"
-		marker-interface="cl.majeanis.satelite.util.SateliteMap" factory-ref="sqlSessionFactorySatelite" />
+		marker-interface="cl.majeanis.satelite.util.po.SateliteMap" factory-ref="sqlSessionFactorySatelite" />
 
 	<mybatis:scan base-package="cl.majeanis.satelite.po"
-		marker-interface="cl.majeanis.satelite.util.LegacyMap" factory-ref="sqlSessionFactoryLegacy" />
+		marker-interface="cl.majeanis.satelite.util.po.LegacyMap" factory-ref="sqlSessionFactoryLegacy" />
 
 </beans>
