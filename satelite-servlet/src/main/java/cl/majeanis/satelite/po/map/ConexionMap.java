@@ -1,8 +1,18 @@
 package cl.majeanis.satelite.po.map;
 
-import java.util.Map;
+import java.math.BigInteger;
+import java.util.List;
 
-public interface ConexionMap
+import cl.majeanis.satelite.to.modelo.ConexionTO;
+import cl.majeanis.satelite.util.po.SateliteMap;
+
+public interface ConexionMap extends SateliteMap
 {
-    void insert(Map<String, Object> parm);
+    public void insert(ConexionTO data);
+    
+    public void update(ConexionTO data);
+    
+    public ConexionTO select(BigInteger id);
+    
+    public List<ConexionTO> select();
 }

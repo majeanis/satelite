@@ -10,9 +10,12 @@
 
 	<typeAliases>
 		<typeAlias type="cl.majeanis.satelite.util.tipo.Encrypted" alias="Encrypted" />
+		<typeAlias type="cl.majeanis.satelite.util.tipo.Horario" alias="Horario" />
+		<typeAlias type="cl.majeanis.satelite.util.tipo.TipoAyuda" alias="TipoAyuda" />
+		<typeAlias type="cl.majeanis.satelite.util.tipo.TipoConsulta" alias="TipoConsulta" />
 	</typeAliases>
 
 	<typeHandlers>
-        <package name="cl.majeanis.satelite.utl.po" />	
+        <package name="cl.majeanis.satelite.util.po" />	
 	</typeHandlers>
 </configuration>

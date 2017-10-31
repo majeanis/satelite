@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.majeanis.satelite.po.map.ConexionMap" >
+
+	<resultMap type="cl.majeanis.satelite.to.modelo.DriverTO" id="driverMap">
+		<id property="id" column="drvr_id" />
+		<result property="nombre" column="drvr_nomb" />
+		<result property="clazz" column="drvr_clas" /> 
+	</resultMap>
+	
+	<resultMap type="cl.majeanis.satelite.to.modelo.ConexionTO" id="conexionMap">
+		<id property="id" column="conx_id" />
+		<result property="nombre" column="conx_nomb" />
+		<result property="url" column="conx_url" />
+		<result property="usuario" column="conx_user" />
+		<result property="password" column="conx_pass" />
+		<association property="driver" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cl.majeanis.satelite.to.modelo.ConexionTO" >
+
+		<selectKey keyProperty="id" resultType="BigInteger" order="BEFORE" >
+			select SAT_CONX_ID.nextval from dual
+		</selectKey>
+
+		insert into sat_conx(conx_id, conx_nomb, conx_url, conx_user, conx_pass, drvr_id)
+			values
+			(
+				#{id,mode=IN,jdbcType=NUMERIC}
+			   ,#{nombre,mode=IN,jdbcType=VARCHAR}
+			   ,#{url,mode=IN,jdbcType=VARCHAR}
+			   ,#{usuario,mode=IN,jdbcType=VARCHAR}
+			   ,#{password,mode=IN,jdbcType=VARCHAR}
+			   ,#{driver.id,mode=IN,jdbcType=NUMERIC}					
+			)
+	</insert>
+	
+</mapper>
