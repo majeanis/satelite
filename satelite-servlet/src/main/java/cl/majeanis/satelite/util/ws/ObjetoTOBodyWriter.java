@@ -40,6 +40,6 @@ public class ObjetoTOBodyWriter implements MessageBodyWriter<ObjetoTO>
             MultivaluedMap<String, Object> httpHeaders, 
             OutputStream entityStream) throws IOException, WebApplicationException
     {
-        Utils.toJsonString(type, entityStream);
+        Utils.toJsonString(t, entityStream);
     }
 }
