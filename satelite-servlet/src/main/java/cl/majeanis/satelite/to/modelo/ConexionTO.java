@@ -8,8 +8,8 @@ public class ConexionTO extends PersistibleTO
     private static final long serialVersionUID = 1L;
 
     private String nombre;
-    private String url;
-    private String usuario;
+    private Encrypted url;
+    private Encrypted usuario;
     private Encrypted password;
     private DriverTO driver;
 
@@ -21,19 +21,19 @@ public class ConexionTO extends PersistibleTO
     {
         this.nombre = nombre;
     }
-    public String getUrl()
+    public Encrypted getUrl()
     {
         return url;
     }
-    public void setUrl(String url)
+    public void setUrl(Encrypted url)
     {
         this.url = url;
     }
-    public String getUsuario()
+    public Encrypted getUsuario()
     {
         return usuario;
     }
-    public void setUsuario(String usuario)
+    public void setUsuario(Encrypted usuario)
     {
         this.usuario = usuario;
     }

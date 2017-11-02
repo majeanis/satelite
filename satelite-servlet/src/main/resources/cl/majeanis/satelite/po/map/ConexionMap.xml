@@ -36,5 +36,13 @@
 			   ,#{driver.id,mode=IN,jdbcType=NUMERIC}					
 			)
 	</insert>
-	
+
+	<update id="update" parameterType="cl.majeanis.satelite.to.modelo.ConexionTO">
+		update sat_conx set
+			   conx_nomb = #{nombre,mode=IN,jdbcType=VARCHAR}
+			  ,conx_url = #{url,mode=IN,jdbcType=VARCHAR}
+			  ,conx_user = #{usuario,mode=IN,jdbcType=VARCHAR}
+			  ,conx_pass = #{password,mode=IN,jdbcType=VARCHAR}
+		where  conx_id = #{id,mode=IN,jdbcType=NUMERIC}
+	</update>	
 </mapper>

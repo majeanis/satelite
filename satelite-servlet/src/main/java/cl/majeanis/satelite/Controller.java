@@ -51,10 +51,10 @@ public final class Controller extends HttpServlet
         ConexionPO po = ctx.getBean(ConexionPO.class);
         ConexionTO to = new ConexionTO();
         
-        to.setNombre("Mi Conexión");
-        to.setUsuario("satelite");
+        to.setNombre( "Mi Conexión" );
+        to.setUsuario( new Encrypted( "satelite") );
         to.setPassword( new Encrypted( "satelite" ) );
-        to.setUrl("jdbc:oracle:thin:@");
+        to.setUrl( new Encrypted("jdbc:oracle:thin:@") );
         to.setDriver( new DriverTO() );
         to.getDriver().setId(1);
 
