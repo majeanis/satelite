@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Resultado extends Serializable
 {
-    default boolean isOK()
+    default boolean isOk()
     {
         return !hasErrors() && !hasExceptions();
     }

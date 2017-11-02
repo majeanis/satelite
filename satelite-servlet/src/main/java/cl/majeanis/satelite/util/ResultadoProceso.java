@@ -89,7 +89,7 @@ public class ResultadoProceso implements Resultado
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder("ResultadoProceso[isOK=" + this.isOK() );
+        StringBuilder sb = new StringBuilder("ResultadoProceso[isOK=" + this.isOk() );
         sb.append(",hasErrors=" + this.hasErrors() );
         sb.append(",hasExceptions=" + this.hasExceptions() );
         sb.append(",mensajes=" + ToStringUtils.toString(mensajes));
