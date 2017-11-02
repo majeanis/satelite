@@ -16,6 +16,6 @@ public class EncryptedDeserializer extends JsonDeserializer<Encrypted>
             throws IOException, JsonProcessingException
     {
         String s = p.getText().trim();
-        return Encrypted.valueOf(s);
+        return new Encrypted(s);
     }
 }

@@ -44,11 +44,10 @@ public class Conexiones extends RecursoRestBase
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
-    public Response guardar(@HeaderParam("X-Sesion") String sesion)
+    public Response guardar(@HeaderParam("X-Sesion") String sesion,
+                            ConexionTO data)
     {
-        ConexionTO data = new ConexionTO();
         logger.info("guardar[INI] sesion={} data={}", sesion, data );
-
         conxPO.guardar(data);
         return Response.status(Status.OK).entity(data).build();
     }
