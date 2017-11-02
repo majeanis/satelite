@@ -44,5 +44,27 @@
 			  ,conx_user = #{usuario,mode=IN,jdbcType=VARCHAR}
 			  ,conx_pass = #{password,mode=IN,jdbcType=VARCHAR}
 		where  conx_id = #{id,mode=IN,jdbcType=NUMERIC}
-	</update>	
+	</update>
+	
+	<select id="select" parameterType="map" resultMap="conexionMap">
+		select conx.conx_id
+		      ,conx.conx_nomb
+		      ,conx.conx_url
+		      ,conx.conx_user
+		      ,conx.conx_pass
+		      ,conx.drvr_id
+		      ,drvr.drvr_nomb
+		      ,drvr.drvr_clas
+		from   sat_conx conx inner join sat_drvr drvr
+		   on (conx.drvr_id = drvr.drvr_id)
+		<where>
+			<if test="id!=null" >
+				and conx.id = #{id,mode=IN,jdbcType=NUMERIC}
+			</if>
+			<if test="nombre!=null" >
+				and conx.conx_nomb = #{nombre,mode=IN,jdbcType=VARCHAR}
+			</if>
+		</where>
+		order by conx.conx_id
+	</select>
 </mapper>

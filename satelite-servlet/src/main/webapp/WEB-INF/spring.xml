@@ -21,9 +21,9 @@
 		<property name="resourceRef" value="false" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
 	<tx:jta-transaction-manager />
-
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 	<bean id="sqlSessionFactorySatelite" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dsSatelite" />
 		<property name="configLocation" value="/WEB-INF/mybatis.xml" />
