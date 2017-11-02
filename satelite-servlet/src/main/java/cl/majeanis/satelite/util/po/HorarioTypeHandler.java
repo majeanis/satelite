@@ -10,7 +10,7 @@ import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedJdbcTypes;
 import org.apache.ibatis.type.MappedTypes;
 
-import cl.majeanis.satelite.util.Utils;
+import cl.majeanis.satelite.util.JsonUtils;
 import cl.majeanis.satelite.util.tipo.Horario;
 
 @MappedJdbcTypes(JdbcType.VARCHAR)
@@ -19,12 +19,12 @@ public class HorarioTypeHandler extends BaseTypeHandler<Horario>
 {
     private static String toJson(Horario horario)
     {
-        return Utils.toJson(horario);
+        return JsonUtils.toJson(horario);
     }
     
     private static Horario fromJson(String value)
     {
-        return Utils.fromJson(Horario.class, value);
+        return JsonUtils.fromJson(Horario.class, value);
     }
     
     @Override

@@ -14,7 +14,7 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.Provider;
 
 import cl.majeanis.satelite.to.ObjetoTO;
-import cl.majeanis.satelite.util.Utils;
+import cl.majeanis.satelite.util.JsonUtils;
 
 @Provider
 @Consumes(MediaType.APPLICATION_JSON)
@@ -45,7 +45,7 @@ public class ObjetoTOBodyReader implements MessageBodyReader<ObjetoTO>
         if( "0".equals(contentLength) && bytesEstimaded == 0)
             throw new NoContentException("Objeto vacío");
 
-        ObjetoTO o = Utils.fromJson(type, entityStream );
+        ObjetoTO o = JsonUtils.fromJson(type, entityStream );
         if( o == null )
         {
             throw new NoContentException("Objeto no pudo ser deserializado");

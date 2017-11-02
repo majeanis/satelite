@@ -13,7 +13,7 @@ import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
 import cl.majeanis.satelite.to.ObjetoTO;
-import cl.majeanis.satelite.util.Utils;
+import cl.majeanis.satelite.util.JsonUtils;
 
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +40,6 @@ public class ObjetoTOBodyWriter implements MessageBodyWriter<ObjetoTO>
             MultivaluedMap<String, Object> httpHeaders, 
             OutputStream entityStream) throws IOException, WebApplicationException
     {
-        Utils.toJson(t, entityStream);
+        JsonUtils.toJson(t, entityStream);
     }
 }
