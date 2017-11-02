@@ -12,7 +12,7 @@ public class ConexionTO extends PersistibleTO
     private Encrypted usuario;
     private Encrypted password;
     private DriverTO driver;
-
+    
     public String getNombre()
     {
         return nombre;

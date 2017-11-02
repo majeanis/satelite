@@ -19,12 +19,12 @@ public class HorarioTypeHandler extends BaseTypeHandler<Horario>
 {
     private static String toJson(Horario horario)
     {
-        return Utils.toJsonString(horario);
+        return Utils.toJson(horario);
     }
     
     private static Horario fromJson(String value)
     {
-        return Utils.fromJsonString(value, Horario.class);
+        return Utils.fromJson(Horario.class, value);
     }
     
     @Override

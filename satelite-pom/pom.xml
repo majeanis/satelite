@@ -10,10 +10,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<release>1.0.0</release>
 
-		<versionSpring>5.0.1.RELEASE</versionSpring>
+		<versionSpring>4.3.12.RELEASE</versionSpring>
 		<versionMyBatis>3.4.5</versionMyBatis>
 		<versionMyBatisSpring>1.3.1</versionMyBatisSpring>
 		<versionLog4j>2.9.1</versionLog4j>
+		<versionJackson>2.9.2</versionJackson>
 
 		<glassfish.home>/apps/glassfish4.1.2</glassfish.home>
 		<glassfish.domainDirectory>/apps/gf_domains</glassfish.domainDirectory>
@@ -172,7 +173,6 @@
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-web</artifactId>
 				<version>${versionLog4j}</version>
-				<scope>runtime</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -220,6 +220,37 @@
 				<version>7.0</version>
 				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+			    <groupId>com.fasterxml.jackson.core</groupId>
+			    <artifactId>jackson-core</artifactId>
+			    <version>${versionJackson}</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.fasterxml.jackson.core</groupId>
+			    <artifactId>jackson-annotations</artifactId>
+			    <version>${versionJackson}</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.fasterxml.jackson.core</groupId>
+			    <artifactId>jackson-databind</artifactId>
+			    <version>${versionJackson}</version>
+			</dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${versionJackson}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jdk8</artifactId>
+                <version>${versionJackson}</version>
+            </dependency>			
 			<dependency>
 				<groupId>com.microsoft.sqlserver</groupId>
 				<artifactId>mssql-jdbc</artifactId>
