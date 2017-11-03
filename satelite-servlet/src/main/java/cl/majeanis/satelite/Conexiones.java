@@ -14,7 +14,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,8 +21,10 @@ import org.springframework.context.ApplicationContext;
 
 import cl.majeanis.satelite.po.ConexionPO;
 import cl.majeanis.satelite.to.modelo.ConexionTO;
+import cl.majeanis.satelite.util.Respuesta;
 import cl.majeanis.satelite.util.tipo.Encrypted;
 import cl.majeanis.satelite.util.ws.RecursoRestBase;
+import cl.majeanis.satelite.util.ws.ResponseFactory;
 
 @Path("/conexiones")
 public class Conexiones extends RecursoRestBase
@@ -49,7 +50,9 @@ public class Conexiones extends RecursoRestBase
     {
         logger.info("guardar[INI] sesion={} data={}", sesion, data );
         conxPO.guardar(data);
-        return Response.status(Status.OK).entity(data).build();
+        Respuesta<ConexionTO> r = new Respuesta<ConexionTO>(data);
+
+        return ResponseFactory.of(r);
     }
 
     @Path("")

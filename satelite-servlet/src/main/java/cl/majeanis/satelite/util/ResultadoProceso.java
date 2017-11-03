@@ -2,8 +2,9 @@ package cl.majeanis.satelite.util;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ResultadoProceso implements Resultado
 {
@@ -11,6 +12,8 @@ public class ResultadoProceso implements Resultado
 
     private final List<String>    mensajes;
     private final List<String>    errores;
+
+    @JsonIgnore
     private final List<Exception> exceptions;
 
     public ResultadoProceso()
@@ -71,19 +74,19 @@ public class ResultadoProceso implements Resultado
     @Override
     public List<String> getMensajes()
     {
-        return (List<String>) Collections.unmodifiableCollection(this.mensajes);
+        return this.mensajes;
     }
 
     @Override
     public List<String> getErrores()
     {
-        return (List<String>) Collections.unmodifiableCollection(this.errores);
+        return this.errores;
     }
 
     @Override
     public List<Exception> getExceptions()
     {
-        return (List<Exception>) Collections.unmodifiableCollection(this.exceptions);
+        return this.exceptions;
     }
     
     @Override
