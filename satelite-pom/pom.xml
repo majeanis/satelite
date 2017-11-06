@@ -258,7 +258,7 @@
 			</dependency>
 			<dependency>
 				<groupId>cl.majeanis.satelite</groupId>
-				<artifactId>satelite-servlet</artifactId>
+				<artifactId>satelite-ws</artifactId>
 				<version>${release}</version>
 				<type>war</type>
 			</dependency>
@@ -273,7 +273,7 @@
 
 	<modules>
 		<module>../satelite-web</module>
-		<module>../satelite-servlet</module>
+		<module>../satelite-ws</module>
 		<module>../satelite-ear</module>
 	</modules>
 

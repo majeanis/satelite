@@ -21,8 +21,8 @@
 					<modules>
 						<webModule>
 							<groupId>${project.groupId}</groupId>
-							<artifactId>satelite-servlet</artifactId>
-							<contextRoot>/satelite/servlet</contextRoot>
+							<artifactId>satelite-ws</artifactId>
+							<contextRoot>/satelite/ws</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>${project.groupId}</groupId>
@@ -51,7 +51,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>cl.majeanis.satelite</groupId>
-			<artifactId>satelite-servlet</artifactId>
+			<artifactId>satelite-ws</artifactId>
 			<type>war</type>
 		</dependency>
 		<dependency>
