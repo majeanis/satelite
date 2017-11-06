@@ -33,6 +33,7 @@ public class SesionBO
         if( authorization == null || StringUtils.isEmpty(authorization) )
         {
             rtdo.addError("Debe informar datos para la autenticación");
+            logger.info("autenticar[FIN] authorization vacío" );
             return new Respuesta<>(rtdo);
         }
         
@@ -59,8 +60,26 @@ public class SesionBO
         {
             logger.error("autenticar[ERR]", e);
             rtdo.addError("No fue posibe decodicar la llave Authorization");
+
+            return new Respuesta<>(rtdo);
         }
+    }
+    
+    public Respuesta<SesionTO> obtener(String id)
+    {
+        logger.info("obtener[INI] id={}", id );
         
-        return new Respuesta<>(rtdo);
+        Resultado rtdo = new ResultadoProceso();
+
+        SesionTO sesion = sesionPO.get(id);
+        if( sesion == null )
+        {
+            rtdo.addError("No existe sesión con id=%1$s", id);
+            logger.info("obtener[FIN] no existe sesión con id={}", id );
+            return new Respuesta<>(rtdo);
+        }
+
+        logger.info("obtener[FIN] sesion={}", sesion );
+        return new Respuesta<>(sesion);
     }
 }

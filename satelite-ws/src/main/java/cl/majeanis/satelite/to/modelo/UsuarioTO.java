@@ -6,19 +6,10 @@ public class UsuarioTO extends PersistibleTO
 {
     private static final long serialVersionUID = 1L;
     
-    private String login;
     private String nombre;
     private Boolean vigente;
     private TipoUsuarioTO tipo;
 
-    public String getLogin()
-    {
-        return login;
-    }
-    public void setLogin(String login)
-    {
-        this.login = login;
-    }
     public String getNombre()
     {
         return nombre;

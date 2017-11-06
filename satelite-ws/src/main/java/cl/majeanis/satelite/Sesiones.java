@@ -1,10 +1,13 @@
 package cl.majeanis.satelite;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -48,6 +51,30 @@ public class Sesiones extends RecursoRestBase
         } catch(Exception e)
         {
             logger.error("autenticar[ERR]", e);
+            return ResponseFactory.of(e);
+        }
+    }
+
+    @Path("")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @GET
+    public Response checkToken(@HeaderParam("Authorization") String authorization, @Context HttpServletRequest request)
+    {
+        logger.info("checkToken[INI] authorization={}", authorization );
+
+        SesionTO s = (SesionTO) request.getAttribute("sesion");
+        logger.debug(s);
+
+        try
+        {
+            Respuesta<SesionTO> r = sesion.obtener(authorization);
+            logger.info("checkToken[FIN] respuesta={}", r );
+            
+            return ResponseFactory.of(r);
+        } catch(Exception e)
+        {
+            logger.error("checkToken[ERR]", e);
             return ResponseFactory.of(e);
         }
     }
