@@ -12,18 +12,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 
+import cl.majeanis.satelite.bo.SesionBO;
+import cl.majeanis.satelite.to.modelo.SesionTO;
+import cl.majeanis.satelite.util.Respuesta;
 import cl.majeanis.satelite.util.ws.RecursoRestBase;
+import cl.majeanis.satelite.util.ws.ResponseFactory;
 
 @Path("/sesiones")
 public class Sesiones extends RecursoRestBase
 {
     private static final Logger logger = LogManager.getLogger(Sesiones.class);
 
+    private SesionBO sesion;
+    
     @Override
     protected void initBeans(ApplicationContext appContext)
     {
+        sesion = appContext.getBean(SesionBO.class);
     }
-    
 
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,7 +37,18 @@ public class Sesiones extends RecursoRestBase
     @POST
     public Response autenticar(@HeaderParam("Authorization") String authorization)
     {
-        return null;
-    }
+        logger.info("autenticar[INI] authorization={}", authorization );
 
+        try
+        {
+            Respuesta<SesionTO> r = sesion.autenticar(authorization);
+            logger.info("autenticar[FIN] respuesta={}", r );
+            
+            return ResponseFactory.of(r);
+        } catch(Exception e)
+        {
+            logger.error("autenticar[ERR]", e);
+            return ResponseFactory.of(e);
+        }
+    }
 }

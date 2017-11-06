@@ -10,6 +10,7 @@ import cl.majeanis.satelite.to.ObjetoTO;
 import cl.majeanis.satelite.util.JsonUtils;
 import cl.majeanis.satelite.util.Respuesta;
 import cl.majeanis.satelite.util.Resultado;
+import cl.majeanis.satelite.util.ResultadoProceso;
 
 public final class ResponseFactory
 {
@@ -75,5 +76,12 @@ public final class ResponseFactory
     public static Response of(Respuesta<?> respuesta)
     {
         return of(respuesta,0);
+    }
+    
+    public static Response of(Exception exception)
+    {
+        Resultado rtdo = new ResultadoProceso();
+        rtdo.addError(exception);
+        return of( new Respuesta<ObjetoTO>(rtdo));
     }
 }

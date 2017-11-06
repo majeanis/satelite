@@ -6,23 +6,14 @@ public class TipoUsuarioTO extends BaseTO
 {
     private static final long serialVersionUID = 1L;
     
-    private Integer id;
     private String nombre;
-    private Boolean administrador;
-    private Boolean creaConsulta;
-    private Boolean autoAsignarConsulta;
-    private Boolean modificrConsulta;
-    private Boolean eliminarConsulta;
-    private Boolean ejecutarConsulya;
+    private Boolean administrador = false;
+    private Boolean creaConsulta = false;
+    private Boolean autoAsignarConsulta = false;
+    private Boolean modificrConsulta = false;
+    private Boolean eliminarConsulta = false;
+    private Boolean ejecutarConsulta = false;
 
-    public Integer getId()
-    {
-        return id;
-    }
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
     public String getNombre()
     {
         return nombre;
@@ -71,12 +62,12 @@ public class TipoUsuarioTO extends BaseTO
     {
         this.eliminarConsulta = eliminarConsulta;
     }
-    public Boolean getEjecutarConsulya()
+    public Boolean getEjecutarConsulta()
     {
-        return ejecutarConsulya;
+        return ejecutarConsulta;
     }
-    public void setEjecutarConsulya(Boolean ejecutarConsulya)
+    public void setEjecutarConsulta(Boolean ejecutarConsulya)
     {
-        this.ejecutarConsulya = ejecutarConsulya;
+        this.ejecutarConsulta = ejecutarConsulya;
     }
 }
