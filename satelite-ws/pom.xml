@@ -9,7 +9,7 @@
 		<relativePath>../satelite-pom</relativePath>
 	</parent>
 
-	<artifactId>satelite-servlet</artifactId>
+	<artifactId>satelite-ws</artifactId>
 	<packaging>war</packaging>
 
 	<dependencies>
