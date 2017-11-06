@@ -23,7 +23,7 @@ public class SesionPO
     {
         logger.debug("crear[INI] usuario={}", usuario);
         
-        String plainToken = usuario.getNombre() + ":" + usuario.getTipo().getNombre();
+        String plainToken = usuario.getNombre() + ":" + usuario.getTipo().getCodigo();
         logger.trace("crear: despues de crear el plainToken={}", plainToken );
 
         SesionTO sesion = new SesionTO();

@@ -12,6 +12,6 @@ public enum TipoUsuario
     {
         if( tipo == null ) return null;
         
-        return valueOf(tipo.getNombre());
+        return valueOf(tipo.getCodigo());
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.majeanis.satelite.po.map.UsuarioMap" >
+
+	<resultMap type="cl.majeanis.satelite.to.modelo.TipoUsuarioTO" id="tipoUsuarioMap">
+		<id property="codigo" column="tusu_codi" />
+		<result property="administrador" column="tusu_admn" />
+		<result property="creaConsulta" column="tusu_cons_crea" />
+		<result property="autoAsignarConsulta" column="tusu_cons_aasg" />
+		<result property="modificarConsulta" column="tusu_cons_mdif" />
+		<result property="eliminarConsulta" column="tusu_cons_elim" />
+		<result property="ejecutarConsulta" column="tusu_cons_ejec" />
+	</resultMap>
+	
+	<resultMap type="cl.majeanis.satelite.to.modelo.UsuarioTO" id="usuarioMap">
+		<id property="nombre" column="usua_nomb" />
+		<association property="tipo" resultMap="tipoUsuarioMap" />
+	</resultMap>
+	
+	<select id="select" parameterType="map" resultMap="usuarioMap">
+		select usua.nom_usuario					usua_nomb
+		      ,tusu.cod_tipo_usuario			tusu_codi
+		      ,tusu.ind_administrador			tusu_admn
+		      ,tusu.ind_crear_consultas			tusu_cons_crea	
+		      ,tusu.ind_autoasignar_consultas	tusu_cons_aasg
+		      ,tusu.ind_modificar_consultas		tusu_cons_modf
+		      ,tusu.ind_eliminar_consultas		tusu_cons_elim
+		      ,tusu.ind_ejecutar_consultas		tusu_cons_ejec
+		from   usuarios usua inner join tipo_usuario tusu
+   	      on (usua.cod_tipo_usuario = tusu.cod_tipo_usuario)
+   	    <where>
+   	    	<if test="nombre!=null" >
+   	    		and usua.nom_usuario = #{nombre,mode=IN,jdbcType=VARCHAR}
+   	    	</if>
+   	    </where>
+   	    order by usua.nom_usuario
+	</select>
+</mapper>

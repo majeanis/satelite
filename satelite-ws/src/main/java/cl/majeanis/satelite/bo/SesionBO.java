@@ -1,11 +1,10 @@
 package cl.majeanis.satelite.bo;
 
-import java.io.UnsupportedEncodingException;
-
+import javax.naming.AuthenticationException;
+import javax.naming.CommunicationException;
 import javax.naming.NamingException;
 import javax.naming.ldap.LdapContext;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,13 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.majeanis.satelite.po.SesionPO;
+import cl.majeanis.satelite.po.UsuarioPO;
 import cl.majeanis.satelite.to.modelo.SesionTO;
-import cl.majeanis.satelite.to.modelo.TipoUsuarioTO;
 import cl.majeanis.satelite.to.modelo.UsuarioTO;
 import cl.majeanis.satelite.util.LoginUtils;
 import cl.majeanis.satelite.util.Respuesta;
 import cl.majeanis.satelite.util.Resultado;
 import cl.majeanis.satelite.util.ResultadoProceso;
+import cl.majeanis.satelite.util.SisProperties;
 
 @Service
 public class SesionBO
@@ -28,6 +28,12 @@ public class SesionBO
     
     @Autowired
     private SesionPO sesionPO;
+    
+    @Autowired
+    private UsuarioPO usuarioPO;
+    
+    @Autowired
+    private SisProperties properties;
     
     public Respuesta<SesionTO> autenticar(String authorization)
     {
@@ -41,12 +47,13 @@ public class SesionBO
             return new Respuesta<>(rtdo);
         }
         
+        String serverAd = properties.getServerAD();
+        String domainAd = properties.getDomainAD();
+        logger.debug("autenticar: serverAd={} domainAd={}", serverAd, domainAd );
+
         try
         {
-            String decoded = new String( Base64.decodeBase64(authorization), "UTF-8");
-            logger.trace("autenticar: despues de Base64 decode={}", decoded );
-            
-            String[] credencial = decoded.split(":");
+            String[] credencial = authorization.split(":");
             logger.trace("autenticar: credenciales={}", (Object[]) credencial );
             if( credencial != null & credencial.length != 2)
             {
@@ -55,30 +62,43 @@ public class SesionBO
                 return new Respuesta<>(rtdo);
             }
             
-            LdapContext ctx = LoginUtils.loginToAd(credencial[0], credencial[1], "LOCAL_AD.CL", "192.168.56.14");
+            /**
+             * Procedemos a validar las credenciales de autenticación
+             */
+            LdapContext ctx = LoginUtils.loginToAd(credencial[0], credencial[1], domainAd, serverAd);
             ctx.close();
             ctx = null;
             
-            TipoUsuarioTO tu = new TipoUsuarioTO();
-            tu.setNombre("ADMIN");
-
-            UsuarioTO u = new UsuarioTO();
-            u.setNombre("mauricio.camara");
-            u.setTipo(tu);
+            /**
+             * Si llegamos a este punto, entonces las credenciales son correctas
+             * y tenemos que buscar al usuario en la BD. Si el usuario no existe
+             * en la BD entonces no es factible autenticarlo
+             */
+            UsuarioTO usua = usuarioPO.get(credencial[0]);
+            if( usua == null )
+            {
+                rtdo.addError("Usuario \"%1$s\" no existe en la aplicación",  credencial[0]);
+                logger.info("autenticar[FIN] usuario no existe en la BD - usuario={}", credencial[0] );
+            }
             
-            SesionTO sesion = sesionPO.crear(u);
+            SesionTO sesion = sesionPO.crear(usua);
             logger.info("autenticar[FIN] sesion={}", sesion);
 
             return new Respuesta<>(sesion);
-        } catch (UnsupportedEncodingException e)
+        } catch (CommunicationException e)
         {
-            rtdo.addError("No fue posibe decodicar la llave Authorization");
-            logger.error("autenticar[ERR] al decodificar la llave Authorization - " + rtdo, e);
+            rtdo.addError("No hay comunicación con el servidor Active Directory [%1$s:%2$s]", serverAd, domainAd);
+            logger.error("autenticar[ER2] al autenticar usuario - " + rtdo, e);
+
+        } catch (AuthenticationException e)
+        {
+            rtdo.addError("No fue posibe autenticar al usuario");
+            logger.error("autenticar[ER3] al autenticar usuario - " + rtdo, e);
 
         } catch (NamingException e)
         {
-            rtdo.addError("No fue posibe autenticar al usuario");
-            logger.error("autenticar[ERR] al autenticar usuario - " + rtdo, e);
+            rtdo.addError("Error al autenticar al usuario");
+            logger.error("autenticar[ER4] al autenticar usuario - " + rtdo, e);
         }
         
         return new Respuesta<>(rtdo);

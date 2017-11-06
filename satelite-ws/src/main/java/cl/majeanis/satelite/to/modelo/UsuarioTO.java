@@ -7,7 +7,6 @@ public class UsuarioTO extends PersistibleTO
     private static final long serialVersionUID = 1L;
     
     private String nombre;
-    private Boolean vigente;
     private TipoUsuarioTO tipo;
 
     public String getNombre()
@@ -17,14 +16,6 @@ public class UsuarioTO extends PersistibleTO
     public void setNombre(String nombre)
     {
         this.nombre = nombre;
-    }
-    public Boolean getVigente()
-    {
-        return vigente;
-    }
-    public void setVigente(Boolean vigente)
-    {
-        this.vigente = vigente;
     }
     public TipoUsuarioTO getTipo()
     {
