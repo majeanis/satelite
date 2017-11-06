@@ -22,7 +22,6 @@ import org.springframework.context.ApplicationContext;
 import cl.majeanis.satelite.po.ConexionPO;
 import cl.majeanis.satelite.to.modelo.ConexionTO;
 import cl.majeanis.satelite.util.Respuesta;
-import cl.majeanis.satelite.util.tipo.Encrypted;
 import cl.majeanis.satelite.util.ws.RecursoRestBase;
 import cl.majeanis.satelite.util.ws.ResponseFactory;
 
@@ -45,41 +44,38 @@ public class Conexiones extends RecursoRestBase
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
-    public Response guardar(@HeaderParam("X-Sesion") String sesion,
+    public Response guardar(@HeaderParam("Authorization") String authorization,
+                            @Context HttpServletRequest request,
                             ConexionTO data)
     {
-        logger.info("guardar[INI] sesion={} data={}", sesion, data );
+        logger.info("guardar[INI] authorization={} data={}", authorization, data );
         conxPO.guardar(data);
         Respuesta<ConexionTO> r = new Respuesta<ConexionTO>(data);
 
+        HttpSession s = request.getSession();
+        s.setAttribute("conexion", data);
         return ResponseFactory.of(r);
     }
 
     @Path("")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public Response getConexion(@HeaderParam("X-Sesion") String sesion, @Context HttpServletRequest request)
+    public Response getConexion(@HeaderParam("Authorization") String authorization, 
+                                @Context HttpServletRequest request)
     {
-        logger.info("getConexion[INI] sesion={}", sesion );
+        logger.info("getConexion[INI] authorization={}", authorization );
 
-        ConexionTO data = new ConexionTO();
-        data.setNombre("Conexion " + numeroConexion++ );
-        data.setUsuario( new Encrypted( "el usuario"));
-        data.setUrl( new Encrypted("la URL"));
-        data.setPassword( new Encrypted("la pass"));
-
-        conxPO.guardar(data);
-        
         HttpSession s = request.getSession();
-        s.setAttribute("data", data);
+        ConexionTO d = (ConexionTO) s.getAttribute("conexion");
 
-        return Response.ok(data).build();
+        Respuesta<ConexionTO> r = new Respuesta<>(d);
+        return ResponseFactory.of(r);
     }
 
     @Path("{idConexion}")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public Response get(@HeaderParam("X-Sesion") String sesion,
+    public Response get(@HeaderParam("Authorization") String authorization,
                         @PathParam("idConexion") BigInteger idConexion,
                         @Context HttpServletRequest request)
     {

@@ -2,6 +2,7 @@ package cl.majeanis.satelite.util.ws;
 
 import java.util.List;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -68,7 +69,7 @@ public final class ResponseFactory
             httpStatus = computeStatus(respuesta);
 
         String j = toJson(respuesta, httpStatus);
-        return Response.status(httpStatus).entity(j).build();
+        return Response.status(httpStatus).type(MediaType.APPLICATION_JSON).entity(j).build();
     }
     
     public static Response of(Respuesta<?> respuesta)
