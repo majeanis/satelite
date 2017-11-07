@@ -39,8 +39,11 @@ public class SesionPO
     
     public SesionTO get(String id)
     {
-        logger.debug("get[INI] id={}",  id );
+        logger.debug("get[INI] id={}", id );
         
+        if( id == null )
+            return null;
+
         SesionTO sesion = cacheSesion.get(id);
 
         logger.debug("get[FIN] sesion={}",  sesion );
