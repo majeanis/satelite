@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cl.majeanis.satelite.po.map.ConsultaMap" >
+
+	<resultMap type="cl.majeanis.satelite.to.modelo.UsuarioTO" id="usuarioMap">
+		<id property="nombre" column="usua_nomb" />
+		<association property="tipo" resultMap="tipoUsuarioMap" />
+	</resultMap>
+
+	<resultMap type="cl.majeanis.satelite.to.modelo.ConsultaTO" id="consultaMap">
+		<id property="id" column="num_consulta" />
+		<result property="nombre" column="nom_consulta" />
+		<result property="conexion.id" column="num_basedatos" />
+		<result property="conexion.nombre" column="nom_basedatos" />
+		<result property="sql" column="gls_query" />
+		<result property="dueno.nombre" column="nom_dueno" />
+		<result property="creador.nombre" column="nom_creador" />
+		<result property="creacion" column="fec_creacion" />
+		<result property="ultActualizacion" column="fec_ult_actualizacion" />
+		<result property="vigente" column="ind_bloqueada" />
+	</resultMap>
+	
+	<select id="select" parameterType="map" resultMap="consultaMap">
+		<choose>
+			<when test="usuario!=null">
+				select cons.num_consulta
+				      ,cons.nom_consulta
+				      ,cons.num_basedatos
+				      ,bdat.nom_basedatos
+				      ,bdat.gls_coneccion
+				      ,cons.gls_query
+				      ,cons.nom_dueno
+				      ,duen.cod_tipo_usuario
+				      ,cons.nom_creador
+				      ,crea.cod_tipo_usuario
+				      ,cons.fec_creacion
+				      ,cons.fec_ult_actualizacion
+				      ,cons.gls_horario_ejecucion
+				      ,cons.gls_archivo_salida
+				      ,cons.ind_bloqueada
+				from   Consultas cons inner join BaseDatos bdat
+				   on (cons.num_basedatos = bdat.num_basedatos) inner join Cons_Usuario cusu
+				   on (cons.num_consulta = cusu.num_consulta) left join Usuarios duen
+				   on (cons.nom_dueno = duen.nom_usuario) left join Usuarios crea
+				   on (cons.nom_creador = crea.nom_usuario)
+				where  cusu.nom_usuario = #{usuario,mode=IN,jdbcType=VARCHAR}
+				  and  cons.num_basedatos = #{baseDatos,mode=IN,jdbcType=NUMERIC} 
+				order by cons.nom_consulta
+			</when>
+			<otherwise>
+				select cons.num_consulta
+				      ,cons.nom_consulta
+				      ,cons.num_basedatos
+				      ,bdat.nom_basedatos
+				      ,bdat.gls_coneccion
+				      ,cons.gls_query
+				      ,cons.nom_dueno
+				      ,duen.cod_tipo_usuario
+				      ,cons.nom_creador
+				      ,crea.cod_tipo_usuario
+				      ,cons.fec_creacion
+				      ,cons.fec_ult_actualizacion
+				      ,cons.gls_horario_ejecucion
+				      ,cons.gls_archivo_salida
+				      ,cons.ind_bloqueada
+				from   Consultas cons inner join BaseDatos bdat
+				   on (cons.num_basedatos = bdat.num_basedatos) left join Usuarios duen
+				   on (cons.nom_dueno = duen.nom_usuario) left join Usuarios crea
+				   on (cons.nom_creador = crea.nom_usuario)
+				order by cons.nom_consulta
+			</otherwise>
+		</choose>
+	</select>
+</mapper>

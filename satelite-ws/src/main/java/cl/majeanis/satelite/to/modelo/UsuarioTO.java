@@ -1,8 +1,8 @@
 package cl.majeanis.satelite.to.modelo;
 
-import cl.majeanis.satelite.to.PersistibleTO;
+import cl.majeanis.satelite.to.BaseTO;
 
-public class UsuarioTO extends PersistibleTO
+public class UsuarioTO extends BaseTO
 {
     private static final long serialVersionUID = 1L;
     

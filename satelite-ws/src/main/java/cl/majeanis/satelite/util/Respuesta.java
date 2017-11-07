@@ -3,9 +3,7 @@ package cl.majeanis.satelite.util;
 import java.io.Serializable;
 import java.util.Optional;
 
-import cl.majeanis.satelite.to.ObjetoTO;
-
-public class Respuesta<T extends ObjetoTO> implements Serializable
+public class Respuesta<T> implements Serializable
 {
     private static final long serialVersionUID = 1L;
 

@@ -37,7 +37,7 @@ public final class ResponseFactory
             public int code;
             public String status;
             public List<String> messages;
-            public ObjetoTO data;
+            public Object data;
         }
         
         Resultado r = respuesta.getResult();

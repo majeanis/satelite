@@ -22,9 +22,9 @@ import cl.majeanis.satelite.util.ws.RecursoRestBase;
 import cl.majeanis.satelite.util.ws.ResponseFactory;
 
 @Path("/sesiones")
-public class Sesiones extends RecursoRestBase
+public class SesionesRest extends RecursoRestBase
 {
-    private static final Logger logger = LogManager.getLogger(Sesiones.class);
+    private static final Logger logger = LogManager.getLogger(SesionesRest.class);
 
     private SesionBO sesion;
     

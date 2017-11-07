@@ -1,5 +1,7 @@
 package cl.majeanis.satelite.to.modelo;
 
+import java.time.LocalDateTime;
+
 import cl.majeanis.satelite.to.PersistibleTO;
 import cl.majeanis.satelite.util.tipo.Horario;
 import cl.majeanis.satelite.util.tipo.TipoConsulta;
@@ -9,13 +11,15 @@ public class ConsultaTO extends PersistibleTO
     private static final long serialVersionUID = 1L;
 
     private String nombre;
-    private String sql;
-    private TipoConsulta tipo;
-    private Horario horario;
-    private Boolean vigente;
+    private ConexionTO conexion;
+    private String sql;    
     private UsuarioTO dueno;
     private UsuarioTO creador;
-    private ConexionTO conexion;
+    private LocalDateTime creacion;
+    private LocalDateTime ultActualizacion;
+    private Horario horario;
+    private TipoConsulta tipo;
+    private Boolean vigente;
 
     public String getNombre()
     {
@@ -25,6 +29,14 @@ public class ConsultaTO extends PersistibleTO
     {
         this.nombre = nombre;
     }
+    public ConexionTO getConexion()
+    {
+        return conexion;
+    }
+    public void setConexion(ConexionTO conexion)
+    {
+        this.conexion = conexion;
+    }
     public String getSql()
     {
         return sql;
@@ -32,30 +44,6 @@ public class ConsultaTO extends PersistibleTO
     public void setSql(String sql)
     {
         this.sql = sql;
-    }
-    public TipoConsulta getTipo()
-    {
-        return tipo;
-    }
-    public void setTipo(TipoConsulta tipo)
-    {
-        this.tipo = tipo;
-    }
-    public Horario getHorario()
-    {
-        return horario;
-    }
-    public void setHorario(Horario horario)
-    {
-        this.horario = horario;
-    }
-    public Boolean getVigente()
-    {
-        return vigente;
-    }
-    public void setVigente(Boolean vigente)
-    {
-        this.vigente = vigente;
     }
     public UsuarioTO getDueno()
     {
@@ -73,12 +61,44 @@ public class ConsultaTO extends PersistibleTO
     {
         this.creador = creador;
     }
-    public ConexionTO getConexion()
+    public LocalDateTime getCreacion()
     {
-        return conexion;
+        return creacion;
     }
-    public void setConexion(ConexionTO conexion)
+    public void setCreacion(LocalDateTime creacion)
     {
-        this.conexion = conexion;
+        this.creacion = creacion;
+    }
+    public LocalDateTime getUltActualizacion()
+    {
+        return ultActualizacion;
+    }
+    public void setUltActualizacion(LocalDateTime ultActualizacion)
+    {
+        this.ultActualizacion = ultActualizacion;
+    }
+    public Horario getHorario()
+    {
+        return horario;
+    }
+    public void setHorario(Horario horario)
+    {
+        this.horario = horario;
+    }
+    public TipoConsulta getTipo()
+    {
+        return tipo;
+    }
+    public void setTipo(TipoConsulta tipo)
+    {
+        this.tipo = tipo;
+    }
+    public Boolean getVigente()
+    {
+        return vigente;
+    }
+    public void setVigente(Boolean vigente)
+    {
+        this.vigente = vigente;
     }
 }
