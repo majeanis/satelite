@@ -31,8 +31,6 @@ public class Conexiones extends RecursoRestBase
     private static final Logger logger = LogManager.getLogger(Conexiones.class);
     
     private ConexionPO conxPO;
-
-    private static int numeroConexion = 1;
     
     @Override
     protected void initBeans(ApplicationContext appContext)

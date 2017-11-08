@@ -2,6 +2,8 @@ package cl.majeanis.satelite.to.modelo;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import cl.majeanis.satelite.to.BaseTO;
 
 public class SesionTO extends BaseTO
@@ -35,5 +37,29 @@ public class SesionTO extends BaseTO
     public void setFecha(LocalDateTime fecha)
     {
         this.fecha = fecha;
+    }
+    
+    @JsonIgnore
+    public boolean isAdmin()
+    {
+        if( usuario == null )
+            return false;
+        
+        TipoUsuarioTO tipo = usuario.getTipo();
+        if( tipo == null )
+            return false;
+        
+        if( tipo.getAdministrador() == false )
+            return false;
+        
+        return tipo.getAdministrador();
+    }
+    
+    @JsonIgnore
+    public String getNombreUsuario()
+    {
+        if( usuario == null )
+            return "";
+        return usuario.getNombre();
     }
 }

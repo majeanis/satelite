@@ -1,8 +1,10 @@
 package cl.majeanis.satelite.po;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,13 +23,13 @@ public class ConsultaPO
     @Autowired
     private ConsultaMap consMap;
 
-    public List<ConsultaTO> getList(String baseDatosId, String usuario)
+    public List<ConsultaTO> getList(Optional<String> usuario, Optional<String> baseDatosId)
     {
-        logger.debug("getList[INI] usuario={}", usuario);
+        logger.debug("getList[INI] usuario={} baseDatosId={}", usuario, baseDatosId);
 
         Map<String, Object> parm = new HashMap<>();
-        parm.put("usuario", usuario);
-        parm.put("baseDatosId", baseDatosId);
+        parm.put("usuario", usuario.orElse(null));
+        parm.put("baseDatosId", baseDatosId.orElse(null));
         
         List<ConsultaTO> l = consMap.select(parm);
         
@@ -35,8 +37,23 @@ public class ConsultaPO
         return l;
     }
     
-    public List<ConsultaTO> getList(String baseDatosId)
+    public ConsultaTO get(BigInteger consultaId, Optional<String> usuario)
     {
-        return getList(baseDatosId, null);
+        logger.debug("get[INI] consultaId={} usuario={}", consultaId, usuario );
+        
+        Map<String, Object> parm = new HashMap<>();
+        parm.put("consultaId", consultaId);
+        parm.put("usuario", usuario.orElse(null));
+
+        List<ConsultaTO> l = consMap.select(parm);
+        if( l.isEmpty() )
+        {
+            logger.debug("get[FIN] no existe registro de la consulta - consultaId={}", consultaId );
+            return null;
+        }
+        
+        ConsultaTO o = l.get(0);
+        logger.debug("get[FIN] registro encontrado {}", o );
+        return o;
     }
 }

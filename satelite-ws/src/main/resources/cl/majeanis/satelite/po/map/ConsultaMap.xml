@@ -24,7 +24,7 @@
 	
 	<select id="select" parameterType="map" resultMap="consultaMap">
 		<choose>
-			<when test="usuario!=null">
+			<when test="usuario!=null or baseDatosId!=null or consultaId!=null">
 				select cons.num_consulta
 				      ,cons.nom_consulta
 				      ,cons.num_basedatos
@@ -41,13 +41,22 @@
 				      ,cons.gls_archivo_salida
 				      ,cons.ind_bloqueada
 				from   Consultas cons inner join BaseDatos bdat
-				   on (cons.num_basedatos = bdat.num_basedatos) inner join Cons_Usuario cusu
-				   on (cons.num_consulta = cusu.num_consulta) left join Usuarios duen
+				   on (cons.num_basedatos = bdat.num_basedatos) left join Usuarios duen
 				   on (cons.nom_dueno = duen.nom_usuario) left join Usuarios crea
-				   on (cons.nom_creador = crea.nom_usuario)
-				where  cusu.nom_usuario = #{usuario,mode=IN,jdbcType=VARCHAR}
-				  and  cons.num_basedatos = #{baseDatos,mode=IN,jdbcType=NUMERIC} 
-				order by cons.nom_consulta
+				   on (cons.nom_creador = crea.nom_usuario) inner join Cons_Usuario cusu
+				   on (cons.num_consulta = cusu.num_consulta) 
+				<where>
+					<if test="usuario!=null" >
+						and cusu.nom_usuario = #{usuario,mode=IN,jdbcType=VARCHAR}
+					</if>
+					<if test="baseDatosId!=null" >
+						and cons.num_basedatos = #{baseDatosId,mode=IN,jdbcType=NUMERIC}
+					</if>
+					<if test="consultaId" >
+						and cons.num_consulta = #{consultaId,mode=IN,jdbcType=NUMERIC}
+					</if>
+				</where>
+				order by cons.num_consulta
 			</when>
 			<otherwise>
 				select cons.num_consulta
@@ -69,7 +78,7 @@
 				   on (cons.num_basedatos = bdat.num_basedatos) left join Usuarios duen
 				   on (cons.nom_dueno = duen.nom_usuario) left join Usuarios crea
 				   on (cons.nom_creador = crea.nom_usuario)
-				order by cons.nom_consulta
+				order by cons.num_consulta
 			</otherwise>
 		</choose>
 	</select>

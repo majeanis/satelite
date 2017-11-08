@@ -1,6 +1,8 @@
 package cl.majeanis.satelite.bo;
 
+import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,13 +12,11 @@ import org.springframework.stereotype.Service;
 import cl.majeanis.satelite.po.ConsultaPO;
 import cl.majeanis.satelite.to.modelo.ConsultaTO;
 import cl.majeanis.satelite.to.modelo.SesionTO;
-import cl.majeanis.satelite.to.modelo.TipoUsuarioTO;
-import cl.majeanis.satelite.to.modelo.UsuarioTO;
+import cl.majeanis.satelite.util.CheckUtils;
 import cl.majeanis.satelite.util.Respuesta;
 import cl.majeanis.satelite.util.Resultado;
 import cl.majeanis.satelite.util.ResultadoProceso;
 import cl.majeanis.satelite.util.Utils;
-import cl.majeanis.satelite.util.tipo.TipoUsuario;
 
 @Service
 public class ConsultaBO
@@ -26,70 +26,74 @@ public class ConsultaBO
     @Autowired
     private ConsultaPO consPO;
     
-    public Respuesta<List<ConsultaTO>> getList(SesionTO sesion)
+    public Respuesta<List<ConsultaTO>> getList(SesionTO sesion, Optional<String> usuario)
     {
         logger.debug("getList[INI] sesion={}", sesion );
-        
+
         Resultado rtdo = new ResultadoProceso();
-        if( sesion == null )
+
+        rtdo = CheckUtils.checkSesion(sesion, usuario);
+        if(!rtdo.isOk())
         {
-            rtdo.addError("Debe informar datos de la sesión");
-            logger.debug("getList[FIN] no ha informado la sesión" );
+            logger.debug("getList[FIN] errores de validación - {}", rtdo );
             return new Respuesta<>(rtdo);
         }
-        
-        UsuarioTO usuario = sesion.getUsuario();
-        if( usuario == null )
+
+        /*
+         * Si es usuario ADMIN, entonces se buscarán todas las consultas
+         */
+        List<ConsultaTO> lista = null;
+        if( sesion.isAdmin() )
         {
-            rtdo.addError("Sesión no tiene información del usaurio");
-            logger.debug("getList[FIN] sesión no tiene datos del usuario={}", sesion );
-            return new Respuesta<>(rtdo);
-        }
-        
-        TipoUsuarioTO tipo = usuario.getTipo();
-        if( tipo == null )
+            lista = consPO.getList(Optional.empty(), Optional.empty());            
+        } else
         {
-            rtdo.addError("Datos del Usuario no tiene el tipo");
-            logger.debug("getList[FIN] usuario tiene definido el tipo={}", sesion );
-            return new Respuesta<>(rtdo);
+            lista = consPO.getList(usuario, Optional.empty());            
         }
-        
-        if( !TipoUsuario.ADMIN.name().equalsIgnoreCase(tipo.getCodigo()))
-        {
-            rtdo.addError("Solo usuario Administrador puede listar todas las consultas");
-            logger.debug("getList[FIN] usuario no es ADMIN={}", sesion );
-            return new Respuesta<>(rtdo);
-        }
-        
-        List<ConsultaTO> lista = consPO.getList(null);
+       
         logger.debug("getList[FIN] registros retornados={}", Utils.sizeOf(lista));
         return new Respuesta<>(lista);
     }
     
-//    public Respuesta<List<ConsultaTO>> getList(SesionTO sesion, String usuario)
-//    {
-//        logger.debug("getList[INI] usuario={} sesion={}", usuario, sesion );
-//        
-//        Resultado rtdo = new ResultadoProceso();
-//        if( StringUtils.isBlank(usuario) )
-//        {
-//            rtdo.addError("Debe informar nombre del usuario");
-//        } else if( sesion != null && 
-//                   sesion.getUsuario() != null && 
-//                  !usuario.equals(sesion.getUsuario().getNombre()))
-//        {
-//            rtdo.addError("Nombre de usuario no corresponde al de la sesión" );
-//        }
-//        
-//        if(!rtdo.isOk())
-//        {
-//            logger.debug("getList[FIN] errores de validación={}", rtdo);
-//            return new Respuesta<>(rtdo);
-//        }
-//        
-//        List<ConsultaTO> lista = consPO.getList( null, usuario );
-//        
-//        logger.debug("getList[FIN] registros retornados={}", Utils.sizeOf(lista) );
-//        return new Respuesta<>(lista);
-//    }
+    public Respuesta<ConsultaTO> get(SesionTO sesion, BigInteger consultaId)
+    {
+        logger.debug("get[INI] consultaId={} sesion={}", consultaId, sesion );
+ 
+        Resultado rtdo = new ResultadoProceso();
+        
+        rtdo = CheckUtils.checkSesion(sesion);
+        if(!rtdo.isOk())
+        {
+            logger.debug("ge[FIN] errores de validación - {}", rtdo );
+            return new Respuesta<>(rtdo);
+        }
+        
+        if( consultaId == null )
+        {
+            rtdo.addError("Debe informar el número de la consulta");
+            return new Respuesta<>(rtdo);
+        }
+
+        /*
+         * Si es usuario ADMIN, entonces solo se busca por el Id de la Consulta
+         */
+        ConsultaTO consulta = null;
+        if( sesion.isAdmin() )
+        {
+            consulta = consPO.get(consultaId, Optional.empty());
+        } else
+        {
+            consulta = consPO.get(consultaId, Optional.ofNullable(sesion.getNombreUsuario()));
+        }
+
+        logger.debug("get[FIN] registro retornado={}", consulta );
+        return new Respuesta<>(consulta);
+    }
+    
+    public Respuesta<ConsultaTO> ejecutar(SesionTO sesion, BigInteger consultaId)
+    {
+        logger.debug("ejecutar[INI] consultaId={} sesion={}", consultaId, sesion);
+        
+        return null;
+    }
 }
