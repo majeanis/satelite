@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -48,14 +49,41 @@ public class SesionFilter implements Filter
             throws IOException, ServletException
     {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
-        String authorization = httpRequest.getHeader("Authorization");
-
-        Respuesta<SesionTO> sesion = sesionBO.obtener(authorization);
-        if( sesion.isContentOk() )
+        
+        /*
+         * Nada haremos cuando el request es para el servicio de Sesiones
+         */
+        String uri = httpRequest.getRequestURI();
+        if( uri.matches( ".*/sesiones.*") )
         {
-            httpRequest.setAttribute("sesion", sesion.getContent().get());
+            chain.doFilter(httpRequest, response);
+            return;
         }
 
+        /*
+         * Para todos los siguientes Request exigiremos un token de Authorization válido
+         */
+        String authorization = httpRequest.getHeader("Authorization");
+        if( authorization == null )
+        {
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
+        }
+        
+        Respuesta<SesionTO> sesion = sesionBO.obtener(authorization);
+        if( !sesion.isContentOk() )
+        {
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            return;
+        }
+        
+        /*
+         * Si llegamos a este punto entonces el token es válido
+         * y es posible obtener la sesión del usuario
+         */
+        httpRequest.setAttribute("sesion", sesion.getContent().get());
         chain.doFilter(httpRequest, response);
     }
 
