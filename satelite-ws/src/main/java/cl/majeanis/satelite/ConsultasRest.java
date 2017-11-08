@@ -43,7 +43,7 @@ public class ConsultasRest extends RecursoRestBase
     {
         logger.info("get[INI] authorization={}", authorization);
         
-        Respuesta<List<ConsultaTO>> r = consBO.getList(sesion);
+        Respuesta<List<ConsultaTO>> r = consBO.getList(sesionRequest);
         
         logger.info("get[FIN] respuesta={}", r);
         return ResponseFactory.of(r);

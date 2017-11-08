@@ -18,22 +18,22 @@ public abstract class RecursoRestBase
     
     protected ApplicationContext appContext;
     
-    protected SesionTO sesion;
+    protected SesionTO sesionRequest;
     
     @PostConstruct
     protected void init()
     {
         appContext = WebApplicationContextUtils.getWebApplicationContext(servletRequest.getServletContext());
-        sesion = (SesionTO) servletRequest.getAttribute("sesion");
+        sesionRequest = (SesionTO) servletRequest.getAttribute("sesion");
         initBeans(appContext);
     }
 
     protected Resultado checkSesion()
     {
         Resultado r = new ResultadoProceso();
-        if ( sesion == null )
+        if ( sesionRequest == null )
         {
-            r.addError( "No ha informados datos de la sesión" );
+            r.addError( "No ha informado datos de la sesión" );
             return r;
         }
 
